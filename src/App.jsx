@@ -43,8 +43,7 @@ const HERO_FALLBACK_IMAGE_URL =
 // When the backend is ready, set it to e.g. 'http://localhost:4000'.
 // ============================================================================
 // Backend (FastAPI) default: 'http://localhost:8000'. Empty = fully local mode.
-const API_BASE_URL = 'http://localhost:8000';
-
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 async function apiGet(path) {
   const res = await fetch(`${API_BASE_URL}${path}`);
   if (!res.ok) throw new Error(`GET ${path} -> ${res.status}`);
